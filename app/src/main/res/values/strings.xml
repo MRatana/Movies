@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Movies</string>
+
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="explorer">Explorer</string>
     <string name="download">Download</string>
     <string name="account">Account</string>
     <string name="search">Search</string>
+
     <string name="hollywood">Hollywood</string>
     <string name="bollywood">Bollywood</string>
     <string name="text">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available</string>
+
 </resources>

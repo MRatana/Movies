@@ -6,6 +6,10 @@ import android.os.Bundle;
 
 import kh.edu.rupp.ite.movies.R;
 import kh.edu.rupp.ite.movies.databinding.ActivityMainBinding;
+import kh.edu.rupp.ite.movies.fragment.AccountFragment;
+import kh.edu.rupp.ite.movies.fragment.DownloadFragment;
+import kh.edu.rupp.ite.movies.fragment.ExplorerFragment;
+import kh.edu.rupp.ite.movies.fragment.FavoriteFragment;
 import kh.edu.rupp.ite.movies.fragment.FilterCategory;
 import kh.edu.rupp.ite.movies.fragment.HomeFragment;
 import kh.edu.rupp.ite.movies.help.ShowFragment;
@@ -25,8 +29,20 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.action_home:
                     ShowFragment.show(new HomeFragment(),getSupportFragmentManager(),R.id.lyFragment);
                     break;
+                case R.id.favorite:
+                    ShowFragment.show(new FavoriteFragment(),getSupportFragmentManager(),R.id.lyFragment);
+                    break;
+                case R.id.download:
+                    ShowFragment.show(new DownloadFragment(),getSupportFragmentManager(),R.id.lyFragment);
+                    break;
+                case R.id.explorer:
+                    ShowFragment.show(new ExplorerFragment(),getSupportFragmentManager(),R.id.lyFragment);
+                    break;
+                case R.id.account:
+                    ShowFragment.show(new AccountFragment(),getSupportFragmentManager(),R.id.lyFragment);
+                    break;
                 default:
-                    ShowFragment.show(new FilterCategory(),getSupportFragmentManager(),R.id.lyFragment);
+                    ShowFragment.show(new HomeFragment(),getSupportFragmentManager(),R.id.lyFragment);
 
             }
 
