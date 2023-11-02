@@ -2,6 +2,7 @@ package kh.edu.rupp.ite.movies.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import kh.edu.rupp.ite.movies.R;
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
                     ShowFragment.show(new HomeFragment(),getSupportFragmentManager(),R.id.lyFragment);
                     break;
                 default:
-                    ShowFragment.show(new FilterCategory(),getSupportFragmentManager(),R.id.lyFragment);
+                    Intent myIntent = new Intent(this, MovieDetail.class);
+                    startActivity(myIntent);
 
             }
 

@@ -1,24 +1,23 @@
 package kh.edu.rupp.ite.movies.fragment;
 
-import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import kh.edu.rupp.ite.movies.Activities.MainActivity;
+import kh.edu.rupp.ite.movies.Activities.MovieDetail;
 import kh.edu.rupp.ite.movies.R;
 import kh.edu.rupp.ite.movies.adapters.MovieAdapter;
 import kh.edu.rupp.ite.movies.api.model.Movie;
@@ -40,9 +39,26 @@ public class HomeFragment extends Fragment {
         movieList.add(new Movie("5","hjjjj","kkkkkk","99"));
         movieList.add(new Movie("5","hjjjj","kkkkkk","99"));
         movieList.add(new Movie("5","hjjjj","kkkkkk","99"));
-
         showNew(movieList);
         showPopular(movieList);
+
+        binding.popularList.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                Intent myIntent = new Intent(getContext(), MovieDetail.class);
+                startActivity(myIntent);
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
         return binding.getRoot();
     }
 
