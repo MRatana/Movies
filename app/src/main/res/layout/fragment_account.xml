@@ -58,12 +58,14 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/account_circle" />
+                    android:src="@drawable/img_1" />
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textSize="16dp"
                     android:text="User Name"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
@@ -94,6 +96,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_edit_profile"/>
                     <TextView
                         android:textSize="16dp"
                         android:textColor="@color/white"
@@ -120,13 +127,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_notification"/>
                     <TextView
                         android:textSize="16dp"
                         android:textColor="@color/white"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Edit Profile" />
+                        android:text="Notification" />
 
                     <View
                         android:layout_width="wrap_content"
@@ -146,13 +158,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_setting"/>
                     <TextView
                         android:textSize="16dp"
                         android:textColor="@color/white"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Edit Profile" />
+                        android:text="Setting" />
 
                     <View
                         android:layout_width="wrap_content"
@@ -172,13 +189,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_language"/>
                     <TextView
                         android:textSize="16dp"
                         android:textColor="@color/white"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Edit Profile" />
+                        android:text="Language" />
 
                     <View
                         android:layout_width="wrap_content"
@@ -198,13 +220,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_help"/>
                     <TextView
                         android:textSize="16dp"
                         android:textColor="@color/white"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Edit Profile" />
+                        android:text="Help" />
 
                     <View
                         android:layout_width="wrap_content"
@@ -222,12 +249,17 @@
             </LinearLayout>
 
             <Button
-                android:backgroundTint="@color/gray1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/gray1"
+                android:drawableEnd="@drawable/ic_log_out"
+                android:text="Log out"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/red"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/setting"
-                android:textAllCaps="false"/>
+                app:layout_constraintTop_toBottomOf="@id/setting" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
