@@ -16,7 +16,7 @@
             android:backgroundTint="@color/white"
             android:drawableTint="@color/black"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray2"
+            android:textColorHint="@color/gray1"
             android:background="@drawable/bg_rounded"
             android:drawableStart="@drawable/ic_search"
             android:paddingHorizontal="10dp"

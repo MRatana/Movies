@@ -15,7 +15,6 @@
     <color name="secondary">#010101</color>
     <color name="main">#1d1d1d</color>
     <color name="red">#DB222A</color>
-    <color name="gray2">#1D1D1D</color>
-    <color name="gray1">#1D1D1e</color>
+    <color name="gray1">#95989c</color>
 
 </resources>
