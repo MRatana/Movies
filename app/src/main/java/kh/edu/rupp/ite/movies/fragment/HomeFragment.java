@@ -1,6 +1,7 @@
 package kh.edu.rupp.ite.movies.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import kh.edu.rupp.ite.movies.Activities.MovieDetail;
 import kh.edu.rupp.ite.movies.R;
 import kh.edu.rupp.ite.movies.adapters.MovieAdapter;
 import kh.edu.rupp.ite.movies.api.model.Movie;
