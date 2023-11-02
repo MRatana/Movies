@@ -6,7 +6,6 @@
     android:orientation="horizontal"
     android:layout_marginStart="10dp"
     android:layout_marginVertical="10dp">
-    >
 
         <androidx.cardview.widget.CardView
             app:cardCornerRadius="20dp"
@@ -28,13 +27,14 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/hollywood_filter"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginStart="10dp"
             app:cardCornerRadius="20dp"
             app:cardBackgroundColor="@color/white">
             <TextView
-                android:text="@string/download"
+                android:text="@string/hollywood"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -47,13 +47,14 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/bollywood_filter"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginStart="10dp"
             app:cardCornerRadius="20dp"
             app:cardBackgroundColor="@color/white">
             <TextView
-                android:text="@string/favorite"
+                android:text="@string/bollywood"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
