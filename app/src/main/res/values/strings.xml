@@ -3,6 +3,10 @@
 
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
+    <string name="explorer">Explorer</string>
     <string name="download">Download</string>
     <string name="account">Account</string>
+    <string name="search">Search</string>
+    <string name="text">ab gitbuglkit ggg ggg ggg ggg</string>
+
 </resources>
