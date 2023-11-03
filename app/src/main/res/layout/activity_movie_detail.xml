@@ -56,26 +56,43 @@
             android:layout_weight="1"
             android:layout_height="20sp"/>
         <androidx.cardview.widget.CardView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="30dp"
-            app:cardBackgroundColor="#95989c">
-            <ImageView
-                android:src="@drawable/star"
+            app:cardBackgroundColor="@color/red">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_rounded"
+                android:backgroundTint="@color/black"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/rate"
+                    android:text="10"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@drawable/star"
+                    app:tint="@color/red"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            app:cardCornerRadius="30dp"
-            app:cardBackgroundColor="#95989c">
-            <ImageView
-                android:src="@drawable/baseline_play_arrow_24"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </androidx.cardview.widget.CardView>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            app:cardCornerRadius="30dp"-->
+<!--            app:cardBackgroundColor="#95989c">-->
+<!--            <ImageView-->
+<!--                android:src="@drawable/baseline_play_arrow_24"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"/>-->
+<!--        </androidx.cardview.widget.CardView>-->
     </LinearLayout>
 <!--    title end-->
 

@@ -59,7 +59,6 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
                     showPopular(response.body());
                 }
             }
-
             @Override
             public void onFailure(Call<List<Movie>> call, Throwable t) {
 
@@ -97,7 +96,7 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
 
     @Override
     public void onItemClick(Movie movie, int position) {
-        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg()};
+        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(), movie.getRating()};
         Intent intent = new Intent(getContext(), MovieDetail.class);
         intent.putExtra("movie",array);
         startActivity(intent);
