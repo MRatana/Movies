@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/gray"
     tools:context=".Activities.MainActivity">
+
 
     <FrameLayout
         android:id="@+id/lyFragment"
@@ -25,3 +25,4 @@
         app:itemIconSize="30dp"
         />
 </LinearLayout>
+

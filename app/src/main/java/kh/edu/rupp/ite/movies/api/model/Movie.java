@@ -1,14 +1,9 @@
 package kh.edu.rupp.ite.movies.api.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Movie {
     private String id;
-
-    public Movie(String id, String title, String description, String star) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.star = star;
-    }
 
     private String title;
 
@@ -56,6 +51,7 @@ public class Movie {
 
     private String star;
 
+    @SerializedName("img")
     private String image;
 
 
