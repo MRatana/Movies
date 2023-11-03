@@ -3,7 +3,6 @@ package kh.edu.rupp.ite.movies.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -73,7 +72,6 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         binding.newReleaseList.setLayoutManager(linearLayoutManager);
 
-        //adapter
         MovieAdapter adapter = new MovieAdapter();
         adapter.setOnItemClickListener(this);
         adapter.submitList(movieList);
@@ -99,7 +97,7 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
 
     @Override
     public void onItemClick(Movie movie, int position) {
-        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImage()};
+        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg()};
         Intent intent = new Intent(getContext(), MovieDetail.class);
         intent.putExtra("movie",array);
         startActivity(intent);

@@ -84,7 +84,7 @@ public class MovieAdapter extends ListAdapter<Movie , MovieAdapter.MovieViewHold
         public void bind(Movie movie) {
             binding.title.setText(movie.getTitle());
             binding.description.setText(movie.getDescription());
-            Picasso.get().load(movie.getImage()).into(binding.image);
+            Picasso.get().load(movie.getImg()).into(binding.image);
         }
     }
 }

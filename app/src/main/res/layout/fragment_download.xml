@@ -102,10 +102,10 @@
                     android:layout_weight="1" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_arrow_right" />
+                    android:src="@drawable/delete1" />
 
             </LinearLayout>
 
@@ -169,10 +169,10 @@
                     android:layout_weight="1" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_arrow_right" />
+                    android:src="@drawable/downloading" />
 
             </LinearLayout>
 
@@ -236,10 +236,10 @@
                     android:layout_weight="1" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_arrow_right" />
+                    android:src="@drawable/downloading" />
 
             </LinearLayout>
 

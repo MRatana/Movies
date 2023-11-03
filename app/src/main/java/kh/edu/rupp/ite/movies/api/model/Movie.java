@@ -4,8 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class Movie {
     private String id;
-
     private String title;
+    private String category;
+    private String description;
+    private String img;
+    private String rating;
 
     public String getId() {
         return id;
@@ -23,6 +26,14 @@ public class Movie {
         this.title = title;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -31,29 +42,19 @@ public class Movie {
         this.description = description;
     }
 
-    public String getStar() {
-        return star;
+    public String getImg() {
+        return img;
     }
 
-    public void setStar(String star) {
-        this.star = star;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public String getImage() {
-        return image;
+    public String getRating() {
+        return rating;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
-
-    private String description;
-
-    private String star;
-
-    @SerializedName("img")
-    private String image;
-
-
-
 }
