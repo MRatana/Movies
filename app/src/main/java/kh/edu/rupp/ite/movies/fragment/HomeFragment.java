@@ -38,10 +38,13 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater,container,false);
         ShowFragment.show(new FilterCategory(),getChildFragmentManager(),R.id.filter_fragment);
-
-        getMovie();
-
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getMovie();
     }
 
     private void getMovie(){
