@@ -38,10 +38,13 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater,container,false);
         ShowFragment.show(new FilterCategory(),getChildFragmentManager(),R.id.filter_fragment);
-
-        getMovie();
-
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getMovie();
     }
 
     private void getMovie(){
@@ -59,7 +62,6 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
                     showPopular(response.body());
                 }
             }
-
             @Override
             public void onFailure(Call<List<Movie>> call, Throwable t) {
 
@@ -97,7 +99,7 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
 
     @Override
     public void onItemClick(Movie movie, int position) {
-        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg()};
+        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(), movie.getRating()};
         Intent intent = new Intent(getContext(), MovieDetail.class);
         intent.putExtra("movie",array);
         startActivity(intent);

@@ -23,10 +23,10 @@ public class MovieDetail extends AppCompatActivity {
         if (intent != null) {
             // Get the movie object from the intent.
             String[] movie = intent.getStringArrayExtra("movie");
-
-            Picasso.get().load(movie[3]).into(binding.image);
             binding.title.setText(movie[1]);
             binding.description.setText(movie[2]);
+            Picasso.get().load(movie[3]).into(binding.image);
+            binding.rate.setText(movie[4]);
 
             // Do something with the movie object.
         }

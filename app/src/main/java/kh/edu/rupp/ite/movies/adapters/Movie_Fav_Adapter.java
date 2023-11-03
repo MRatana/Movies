@@ -1,6 +1,7 @@
 package kh.edu.rupp.ite.movies.adapters;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,11 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
     public static final int MODE_FAVORITE = 1;
     public static final int MODE_DETAIL = 2;
     public static final int MODE_EXPLORE = 3;
+
+    public interface OnItemClickListener {
+        void onItemClick(Movie movie, int position);
+    }
+    private MovieAdapter.OnItemClickListener listener;
     public Movie_Fav_Adapter(int displayMode) {
         super(new DiffUtil.ItemCallback<Movie>() {
             @Override
@@ -74,6 +80,23 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
         } else if (holder instanceof ExploreViewHolder && displayMode == MODE_EXPLORE) {
             ((ExploreViewHolder) holder).bind(item);
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Get the position of the clicked item.
+                int position = holder.getAdapterPosition();
+
+                // Perform the desired action.
+                if (listener != null) {
+                    listener.onItemClick(item, position);
+                }
+            }
+        });
+    }
+
+    public void setOnItemClickListener(MovieAdapter.OnItemClickListener listener) {
+        this.listener = listener;
     }
     public class FavoriteViewHolder extends RecyclerView.ViewHolder {
         private ViewHolderFavoriteMoviesBinding itemBinding;

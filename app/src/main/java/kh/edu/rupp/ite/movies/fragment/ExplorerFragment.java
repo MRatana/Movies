@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.movies.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import java.util.List;
 
+import kh.edu.rupp.ite.movies.Activities.MovieDetail;
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter;
 import kh.edu.rupp.ite.movies.api.model.Movie;
 import kh.edu.rupp.ite.movies.api.service.ApiService;
@@ -24,7 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ExplorerFragment extends Fragment {
+public class ExplorerFragment extends Fragment implements Movie_Fav_Adapter.OnItemClickListener{
 
     public FragmentExplorerBinding binding;
 
@@ -79,7 +81,16 @@ public class ExplorerFragment extends Fragment {
         binding.recyclerView.setLayoutManager(layoutManager);
 
         Movie_Fav_Adapter adapter = new Movie_Fav_Adapter(Movie_Fav_Adapter.MODE_EXPLORE);
+        adapter.setOnItemClickListener(this::onItemClick);
         adapter.submitList(moviesList);
         binding.recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(Movie movie, int position) {
+        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(), movie.getRating()};
+        Intent intent = new Intent(getContext(), MovieDetail.class);
+        intent.putExtra("movie",array);
+        startActivity(intent);
     }
 }
