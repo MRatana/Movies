@@ -10,7 +10,6 @@ import kh.edu.rupp.ite.movies.fragment.AccountFragment;
 import kh.edu.rupp.ite.movies.fragment.DownloadFragment;
 import kh.edu.rupp.ite.movies.fragment.ExplorerFragment;
 import kh.edu.rupp.ite.movies.fragment.FavoriteFragment;
-import kh.edu.rupp.ite.movies.fragment.FilterCategory;
 import kh.edu.rupp.ite.movies.fragment.HomeFragment;
 import kh.edu.rupp.ite.movies.help.ShowFragment;
 
@@ -26,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
         ShowFragment.show(new HomeFragment(),getSupportFragmentManager(),R.id.lyFragment);
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.action_home:
-                    ShowFragment.show(new HomeFragment(),getSupportFragmentManager(),R.id.lyFragment);
-                    break;
                 case R.id.favorite:
                     ShowFragment.show(new FavoriteFragment(),getSupportFragmentManager(),R.id.lyFragment);
                     break;
@@ -43,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 default:
                     ShowFragment.show(new HomeFragment(),getSupportFragmentManager(),R.id.lyFragment);
-
             }
 
             return true;
