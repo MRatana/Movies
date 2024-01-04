@@ -17,6 +17,7 @@ import java.util.List;
 
 import kh.edu.rupp.ite.movies.Activities.MovieDetail;
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter;
+import kh.edu.rupp.ite.movies.api.client.ApiClient;
 import kh.edu.rupp.ite.movies.api.model.Movie;
 import kh.edu.rupp.ite.movies.api.service.ApiService;
 import kh.edu.rupp.ite.movies.databinding.FragmentExplorerBinding;
@@ -47,14 +48,7 @@ public class ExplorerFragment extends Fragment implements Movie_Fav_Adapter.OnIt
     }
     private void loadListMovieFromServer(){
 
-        Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ApiService apiService = httpClient.create(ApiService.class);
-
-        Call<List<Movie>> tasks = apiService.loadMoviesList();
+        Call<List<Movie>> tasks = ApiClient.get().getApiService().loadMoviesList();
 
         tasks.enqueue(new Callback<List<Movie>>() {
             @Override

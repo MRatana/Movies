@@ -17,4 +17,6 @@
     <color name="red">#DB222A</color>
     <color name="gray1">#95989c</color>
 
+    <color name="bg_edit_text">#555555</color>
+
 </resources>

@@ -67,6 +67,11 @@
             android:layout_height="wrap_content"
             tools:text="movieRating"/>
 
+        <VideoView
+            android:id="@+id/video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -9,10 +9,20 @@ public class Movie {
     private String description;
     private String img;
     private String rating;
+    private String video;
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
 
     public String getId() {
         return id;
     }
+
 
     public void setId(String id) {
         this.id = id;

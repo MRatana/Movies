@@ -1,12 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Movies</string>
 
-    <string name="home">Home</string>
-    <string name="favorite">Favorite</string>
-    <string name="explorer">Explore</string>
-    <string name="download">Download</string>
-    <string name="account">Account</string>
-    <string name="search">Search</string>
+    <string name="home">ទំព័រដើម</string>
+    <string name="favorite">សំណព្វចិត្ត</string>
+    <string name="explorer">រុករក</string>
+    <string name="download">ទាញយក</string>
+    <string name="account">គណនី</string>
+    <string name="search">ស្វែងរក</string>
 
     <string name="hollywood">Hollywood</string>
     <string name="bollywood">Bollywood</string>
