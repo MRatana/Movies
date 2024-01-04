@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.squareup.picasso.Picasso;
 
 import kh.edu.rupp.ite.movies.Activities.EditProfileActivity;
-import kh.edu.rupp.ite.movies.api.client.ApiClient;
+import kh.edu.rupp.ite.movies.api.client.ApiClient2;
 import kh.edu.rupp.ite.movies.api.model.Profile;
 import kh.edu.rupp.ite.movies.databinding.FragmentAccountBinding;
 import kh.edu.rupp.ite.movies.mvvm.view.LoginActivity2;
@@ -65,7 +65,7 @@ public class AccountFragment extends Fragment {
 
     private void loadProfileFromServer(){
 
-        Call<Profile> tasks = ApiClient.get().getApiService().loadProfile();
+        Call<Profile> tasks = ApiClient2.get().getApiService().loadProfile();
 
         tasks.enqueue(new Callback<Profile>() {
             @Override

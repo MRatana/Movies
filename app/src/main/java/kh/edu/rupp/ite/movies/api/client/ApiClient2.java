@@ -5,13 +5,13 @@ import kh.edu.rupp.ite.movies.api.service.ApiService;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiClient {
+public class ApiClient2 {
 
     private final Retrofit httpClient;
     private final ApiService apiService;
-    private static ApiClient instance;
+    private static ApiClient2 instance;
 
-    private ApiClient() {
+    private ApiClient2() {
         httpClient = new Retrofit.Builder()
                 .baseUrl(BuildConfig.apiUrl)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -19,9 +19,9 @@ public class ApiClient {
         apiService = httpClient.create(ApiService.class);
     }
 
-    public static synchronized ApiClient get() {
+    public static synchronized ApiClient2 get() {
         if (instance == null) {
-            instance = new ApiClient();
+            instance = new ApiClient2();
         }
         return instance;
     }

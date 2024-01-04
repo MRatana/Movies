@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import kh.edu.rupp.ite.movies.Activities.MovieDetail
+import kh.edu.rupp.ite.movies.Activities.MovieDetailActivity
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter
 import kh.edu.rupp.ite.movies.api.model.Movie
 import kh.edu.rupp.ite.movies.databinding.FragmentFavoriteBinding
@@ -53,7 +53,7 @@ class FavoriteFragment2 : Fragment(), Movie_Fav_Adapter.OnItemClickListener {
 
     override fun onItemClick(movie: Movie, position: Int) {
         val array = arrayOf(movie.id, movie.title, movie.description, movie.img, movie.rating)
-        val intent = Intent(requireContext(), MovieDetail::class.java)
+        val intent = Intent(requireContext(), MovieDetailActivity::class.java)
         intent.putExtra("movie", array)
         startActivity(intent)
     }

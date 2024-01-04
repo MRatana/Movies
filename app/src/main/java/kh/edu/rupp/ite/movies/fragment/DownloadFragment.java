@@ -16,15 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter;
-import kh.edu.rupp.ite.movies.api.client.ApiClient;
+import kh.edu.rupp.ite.movies.api.client.ApiClient2;
 import kh.edu.rupp.ite.movies.api.model.Movie;
-import kh.edu.rupp.ite.movies.api.service.ApiService;
 import kh.edu.rupp.ite.movies.databinding.FragmentDownloadBinding;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DownloadFragment extends Fragment {
 
@@ -47,7 +44,7 @@ public class DownloadFragment extends Fragment {
 
     private void loadListMovieFromServer(){
 
-        Call<List<Movie>> tasks = ApiClient.get().getApiService().loadMoviesList();
+        Call<List<Movie>> tasks = ApiClient2.get().getApiService().loadMoviesList();
 
         tasks.enqueue(new Callback<List<Movie>>() {
             @Override
