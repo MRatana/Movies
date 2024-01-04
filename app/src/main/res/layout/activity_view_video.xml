@@ -7,12 +7,10 @@
     tools:context=".Activities.ViewVideoActivity">
 
 
-    <androidx.media3.ui.PlayerView
-        android:id="@+id/video_view"
+    <VideoView
+        android:id="@+id/videoView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:show_buffering="when_playing"
-        app:show_shuffle_button="true"/>
+        android:layout_height="match_parent" />
     <ImageView
         android:id="@+id/back"
         android:layout_width="50dp"
