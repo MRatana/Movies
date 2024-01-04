@@ -1,6 +1,6 @@
 package kh.edu.rupp.ite.movies.api.model;
 
-import com.google.gson.annotations.SerializedName;
+//import com.google.gson.annotations.SerializedName;
 
 public class Movie {
     private String id;
@@ -8,7 +8,18 @@ public class Movie {
     private String category;
     private String description;
     private String img;
+
+    private String video;
+
     private String rating;
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
 
     public String getId() {
         return id;

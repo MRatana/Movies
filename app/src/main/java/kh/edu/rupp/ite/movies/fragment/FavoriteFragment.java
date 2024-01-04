@@ -16,13 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import kh.edu.rupp.ite.movies.Activities.MovieDetail;
-import kh.edu.rupp.ite.movies.adapters.MovieAdapter;
+import kh.edu.rupp.ite.movies.Activities.MovieDetailActivity;
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter;
 import kh.edu.rupp.ite.movies.api.model.Movie;
 import kh.edu.rupp.ite.movies.api.service.ApiService;
-import kh.edu.rupp.ite.movies.databinding.FragmentFavoriteBinding;
 
+import kh.edu.rupp.ite.movies.databinding.FragmentFavoriteBinding;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FavoriteFragment extends Fragment implements Movie_Fav_Adapter.OnItemClickListener {
 
-    public FragmentFavoriteBinding binding;
+    private FragmentFavoriteBinding binding;
 
     @Nullable
     @Override
@@ -92,10 +91,14 @@ public class FavoriteFragment extends Fragment implements Movie_Fav_Adapter.OnIt
 
     @Override
     public void onItemClick(Movie movie, int position) {
-        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(), movie.getRating()};
-        Intent intent = new Intent(getContext(), MovieDetail.class);
+        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(),movie.getVideo(), movie.getRating()};
+        Intent intent = new Intent(getContext(), MovieDetailActivity.class);
         intent.putExtra("movie",array);
         startActivity(intent);
+    }
+
+    public void setBinding(FragmentFavoriteBinding binding) {
+        this.binding = binding;
     }
 }
 

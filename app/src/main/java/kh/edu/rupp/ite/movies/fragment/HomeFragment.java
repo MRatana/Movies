@@ -10,14 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.List;
 
-import kh.edu.rupp.ite.movies.Activities.MovieDetail;
+import kh.edu.rupp.ite.movies.Activities.MovieDetailActivity;
 import kh.edu.rupp.ite.movies.R;
 import kh.edu.rupp.ite.movies.adapters.MovieAdapter;
 import kh.edu.rupp.ite.movies.api.model.Movie;
@@ -37,13 +33,13 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater,container,false);
-        ShowFragment.show(new FilterCategory(),getChildFragmentManager(),R.id.filter_fragment);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ShowFragment.show(new FilterCategory(),getChildFragmentManager(),R.id.filter_fragment);
         getMovie();
     }
 
@@ -99,10 +95,11 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
 
     @Override
     public void onItemClick(Movie movie, int position) {
-        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(), movie.getRating()};
-        Intent intent = new Intent(getContext(), MovieDetail.class);
+        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(),movie.getVideo(), movie.getRating()};
+        Intent intent = new Intent(getContext(), MovieDetailActivity.class);
         intent.putExtra("movie",array);
         startActivity(intent);
+
     }
 }
 
