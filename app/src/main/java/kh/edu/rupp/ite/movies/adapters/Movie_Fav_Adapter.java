@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import kh.edu.rupp.ite.movies.api.model.Movie;
+import kh.edu.rupp.ite.movies.databinding.ViewHolderDownloadMoviesBinding;
 import kh.edu.rupp.ite.movies.databinding.ViewHolderMoviesBinding;
 import kh.edu.rupp.ite.movies.databinding.ViewHolderFavoriteMoviesBinding;
 import kh.edu.rupp.ite.movies.databinding.ViewHolderExplorerMoviesBinding;
@@ -22,6 +24,7 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
     public static final int MODE_FAVORITE = 1;
     public static final int MODE_DETAIL = 2;
     public static final int MODE_EXPLORE = 3;
+    public static final int MODE_DOWNLOAD = 4;
 
     public interface OnItemClickListener {
         void onItemClick(Movie movie, int position);
@@ -36,7 +39,7 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
 
             @Override
             public boolean areContentsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
-                return oldItem.getId() == newItem.getId();
+                return oldItem.getId().equals(newItem.getId());
             }
         });
         this.displayMode = displayMode;
@@ -62,6 +65,9 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
         } else if (viewType == MODE_EXPLORE) {
             ViewHolderExplorerMoviesBinding binding = ViewHolderExplorerMoviesBinding.inflate(inflater, parent, false);
             return new ExploreViewHolder(binding);
+        } else if (viewType == MODE_DOWNLOAD) {
+            ViewHolderDownloadMoviesBinding binding = ViewHolderDownloadMoviesBinding.inflate(inflater, parent, false);
+            return new DownloadViewHolder(binding);
         } else {
             // Handle other view types if needed
             return null;
@@ -79,6 +85,8 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
             ((DetailViewHolder) holder).bind(item);
         } else if (holder instanceof ExploreViewHolder && displayMode == MODE_EXPLORE) {
             ((ExploreViewHolder) holder).bind(item);
+        } else if (holder instanceof DownloadViewHolder && displayMode == MODE_DOWNLOAD) {
+            ((DownloadViewHolder) holder).bind(item);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +106,7 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
     public void setOnItemClickListener(MovieAdapter.OnItemClickListener listener) {
         this.listener = listener;
     }
+
     public class FavoriteViewHolder extends RecyclerView.ViewHolder {
         private ViewHolderFavoriteMoviesBinding itemBinding;
 
@@ -122,6 +131,7 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
         }
 
         public void bind(Movie movie) {
+            Picasso.get().load(movie.getVideo()).into((Target) itemBinding.video);
             Picasso.get().load(movie.getImg()).into(itemBinding.imgMovie);
             itemBinding.movieTitle.setText(movie.getTitle());
             itemBinding.movieCategory.setText(movie.getCategory());
@@ -143,6 +153,21 @@ public class Movie_Fav_Adapter extends ListAdapter<Movie , RecyclerView.ViewHold
             itemBinding.movieRating.setText(movie.getRating());
         }
     }
+    public class DownloadViewHolder extends RecyclerView.ViewHolder {
+        private ViewHolderDownloadMoviesBinding itemBinding;
+
+        public DownloadViewHolder(ViewHolderDownloadMoviesBinding itemBinding) {
+            super(itemBinding.getRoot());
+            this.itemBinding = itemBinding;
+        }
+
+        public void bind(Movie movie) {
+            Picasso.get().load(movie.getImg()).into(itemBinding.imgMovie);
+            itemBinding.movieTitle.setText(movie.getTitle());
+            itemBinding.movieCategory.setText(movie.getCategory());
+        }
+    }
+
 
 //    public static class MovieViewHolder extends RecyclerView.ViewHolder {
 //        private ViewHolderMoviesBinding itemBinding;

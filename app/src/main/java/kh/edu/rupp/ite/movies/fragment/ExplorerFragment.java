@@ -17,14 +17,12 @@ import java.util.List;
 
 import kh.edu.rupp.ite.movies.Activities.MovieDetailActivity;
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter;
+import kh.edu.rupp.ite.movies.api.client.ApiClient2;
 import kh.edu.rupp.ite.movies.api.model.Movie;
-import kh.edu.rupp.ite.movies.api.service.ApiService;
 import kh.edu.rupp.ite.movies.databinding.FragmentExplorerBinding;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ExplorerFragment extends Fragment implements Movie_Fav_Adapter.OnItemClickListener{
 
@@ -47,14 +45,7 @@ public class ExplorerFragment extends Fragment implements Movie_Fav_Adapter.OnIt
     }
     private void loadListMovieFromServer(){
 
-        Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ApiService apiService = httpClient.create(ApiService.class);
-
-        Call<List<Movie>> tasks = apiService.loadMoviesList();
+        Call<List<Movie>> tasks = ApiClient2.get().getApiService().loadMoviesList();
 
         tasks.enqueue(new Callback<List<Movie>>() {
             @Override

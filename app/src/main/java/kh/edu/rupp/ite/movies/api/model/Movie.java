@@ -13,17 +13,20 @@ public class Movie {
 
     private String rating;
 
-    public String getVideo() {
-        return video;
-    }
 
     public void setVideo(String video) {
         this.video = video;
     }
 
+    public String getVideo() {
+        return video;
+    }
+
+
     public String getId() {
         return id;
     }
+
 
     public void setId(String id) {
         this.id = id;
