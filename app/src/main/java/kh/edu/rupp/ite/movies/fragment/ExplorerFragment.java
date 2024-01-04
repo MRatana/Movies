@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import java.util.List;
 
-import kh.edu.rupp.ite.movies.Activities.MovieDetail;
+import kh.edu.rupp.ite.movies.Activities.MovieDetailActivity;
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter;
 import kh.edu.rupp.ite.movies.api.model.Movie;
 import kh.edu.rupp.ite.movies.api.service.ApiService;
@@ -88,8 +88,8 @@ public class ExplorerFragment extends Fragment implements Movie_Fav_Adapter.OnIt
 
     @Override
     public void onItemClick(Movie movie, int position) {
-        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(), movie.getRating()};
-        Intent intent = new Intent(getContext(), MovieDetail.class);
+        String[] array = new String[] {movie.getId(),movie.getTitle(),movie.getDescription(),movie.getImg(),movie.getVideo(), movie.getRating()};
+        Intent intent = new Intent(getContext(), MovieDetailActivity.class);
         intent.putExtra("movie",array);
         startActivity(intent);
     }
