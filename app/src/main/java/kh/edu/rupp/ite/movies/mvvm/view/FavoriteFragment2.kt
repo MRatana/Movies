@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kh.edu.rupp.ite.movies.Activities.MovieDetailActivity
 import kh.edu.rupp.ite.movies.adapters.Movie_Fav_Adapter
 import kh.edu.rupp.ite.movies.api.model.Movie
@@ -17,14 +19,14 @@ import kh.edu.rupp.ite.movies.mvvm.viewmodel.FavoriteViewModel
 class FavoriteFragment2 : Fragment(), Movie_Fav_Adapter.OnItemClickListener {
 
     private lateinit var viewModel: FavoriteViewModel
-    private lateinit var binding: FragmentFavoriteBinding
+    private var binding: FragmentFavoriteBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFavoriteBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,29 +34,46 @@ class FavoriteFragment2 : Fragment(), Movie_Fav_Adapter.OnItemClickListener {
 
         viewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
 
+        setupRecyclerView()
         observeViewModel()
-        viewModel.loadListMovieFromServer()
     }
 
-    private fun observeViewModel() {
-        viewModel.moviesList.observe(viewLifecycleOwner, this::showMovieList)
-    }
-
-    private fun showMovieList(moviesList: List<Movie>) {
-        val layoutManager = GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
-        val recyclerView = binding.recyclerView
+    private fun setupRecyclerView() {
+        val layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+        val recyclerView: RecyclerView = binding!!.recyclerView
         recyclerView.layoutManager = layoutManager
 
         val adapter = Movie_Fav_Adapter(Movie_Fav_Adapter.MODE_FAVORITE)
-        adapter.setOnItemClickListener { movie, position -> onItemClick(movie, position) }
-        adapter.submitList(moviesList)
+        adapter.setOnItemClickListener(this@FavoriteFragment2::onItemClick)
         recyclerView.adapter = adapter
     }
 
+    private fun observeViewModel() {
+        viewModel.moviesList.observe(viewLifecycleOwner, Observer { moviesList ->
+            moviesList?.let {
+                (binding?.recyclerView?.adapter as? Movie_Fav_Adapter)?.submitList(it)
+            }
+        })
+
+        viewModel.loadListMovieFromServer()
+    }
+
     override fun onItemClick(movie: Movie, position: Int) {
-        val array = arrayOf(movie.id, movie.title, movie.description, movie.img, movie.rating)
-        val intent = Intent(requireContext(), MovieDetailActivity::class.java)
+        val array = arrayOf(
+            movie.id,
+            movie.title,
+            movie.description,
+            movie.img,
+            movie.video,
+            movie.rating
+        )
+        val intent = Intent(context, MovieDetailActivity::class.java)
         intent.putExtra("movie", array)
         startActivity(intent)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

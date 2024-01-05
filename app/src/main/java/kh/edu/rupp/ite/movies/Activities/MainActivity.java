@@ -1,20 +1,22 @@
 package kh.edu.rupp.ite.movies.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import kh.edu.rupp.ite.movies.R;
 import kh.edu.rupp.ite.movies.databinding.ActivityMainBinding;
 import kh.edu.rupp.ite.movies.fragment.AccountFragment;
 import kh.edu.rupp.ite.movies.fragment.DownloadFragment;
 import kh.edu.rupp.ite.movies.fragment.ExplorerFragment;
-import kh.edu.rupp.ite.movies.mvvm.view.FavoriteFragment2;
 import kh.edu.rupp.ite.movies.fragment.HomeFragment;
+import kh.edu.rupp.ite.movies.fragment.SearchFragment;
 import kh.edu.rupp.ite.movies.help.ShowFragment;
+import kh.edu.rupp.ite.movies.mvvm.view.FavoriteFragment2;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private ActivityMainBinding binding;
     @SuppressLint("ResourceType")
     @Override
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         ShowFragment.show(new HomeFragment(),getSupportFragmentManager(),R.id.lyFragment);
+
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.favorite:
@@ -43,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+
     }
-
-
 }
