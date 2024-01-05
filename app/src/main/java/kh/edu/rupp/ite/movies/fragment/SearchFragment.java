@@ -20,7 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import kh.edu.rupp.ite.movies.Activities.MovieDetailActivity;
 import kh.edu.rupp.ite.movies.R;
+import kh.edu.rupp.ite.movies.adapters.MovieAdapter;
 import kh.edu.rupp.ite.movies.adapters.SearchAdapter;
 import kh.edu.rupp.ite.movies.api.client.ApiClient2;
 import kh.edu.rupp.ite.movies.api.model.Movie;
@@ -30,7 +32,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements SearchAdapter.OnItemClickListener {
 
     private FragmentSearchBinding binding;
     private SearchAdapter adapter;
@@ -68,6 +70,7 @@ public class SearchFragment extends Fragment {
         binding.recyclerView.setLayoutManager(layoutManager);
 
         adapter = new SearchAdapter(filteredMovies);
+        adapter.setOnItemClickListener(this);
         binding.recyclerView.setAdapter(adapter);
 
     }
@@ -174,5 +177,14 @@ public class SearchFragment extends Fragment {
         if (imm != null) {
             imm.showSoftInput(binding.search, InputMethodManager.SHOW_IMPLICIT);
         }
+    }
+
+
+    @Override
+    public void onItemClick(Movie movie, int position, View view) {
+        String[] array = new String[]{movie.getId(), movie.getTitle(), movie.getDescription(), movie.getImg(), movie.getVideo(), movie.getRating()};
+        Intent intent = new Intent(getContext(), MovieDetailActivity.class);
+        intent.putExtra("movie", array);
+        startActivity(intent);
     }
 }
