@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.movies.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -7,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -49,6 +51,8 @@ public class SearchFragment extends Fragment {
         // Initialize lists
         allMovies = new ArrayList<>();
         filteredMovies = new ArrayList<>();
+        binding.search.requestFocus();
+        showKeyboard();
 
         // Set up RecyclerView
         setupRecyclerView();
@@ -65,6 +69,7 @@ public class SearchFragment extends Fragment {
 
         adapter = new SearchAdapter(filteredMovies);
         binding.recyclerView.setAdapter(adapter);
+
     }
 
 
@@ -162,5 +167,12 @@ public class SearchFragment extends Fragment {
 
     private void showToast(String message) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showKeyboard() {
+        InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.showSoftInput(binding.search, InputMethodManager.SHOW_IMPLICIT);
+        }
     }
 }

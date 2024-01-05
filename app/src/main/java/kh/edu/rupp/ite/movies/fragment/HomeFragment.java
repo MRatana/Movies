@@ -41,32 +41,6 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-
-        binding.search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                showSearchFragment();
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-                if (editable.toString().trim().length() > 0){
-                    showSearchFragment();
-                } else {
-                    getParentFragmentManager().beginTransaction()
-                            .replace(R.id.lyFragment, new HomeFragment())
-                            .commit();
-                }
-
-            }
-        });
-
         return binding.getRoot();
     }
 
@@ -84,7 +58,13 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
         ShowFragment.show(new FilterCategory(), getChildFragmentManager(), R.id.filter_fragment);
         setupRecyclerView();
         getMovie();
-        setupSearch();
+        //setupSearch();
+        binding.search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSearchFragment();
+            }
+        });
     }
 
     private void setupRecyclerView() {
@@ -111,6 +91,8 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
                     allMovies = response.body();
                     filteredMovies = new ArrayList<>(allMovies);
                     adapter.submitList(filteredMovies);
+                    showNew(allMovies);
+                    showPopular(allMovies);
                 }
             }
 
@@ -121,37 +103,66 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
         });
     }
 
-    private void setupSearch() {
-        binding.search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-                // Not used in this example
-            }
+    private void showNew(List<Movie> movieList){
+        //layout management
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        binding.newReleaseList.setLayoutManager(linearLayoutManager);
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                filterMovies(charSequence.toString());
-            }
+        MovieAdapter adapter = new MovieAdapter();
+        adapter.setOnItemClickListener(this);
+        adapter.submitList(movieList);
 
-            @Override
-            public void afterTextChanged(Editable editable) {
-                // Not used in this example
-            }
-        });
+        binding.newReleaseList.setAdapter(adapter);
+
     }
 
-    private void filterMovies(String query) {
-        filteredMovies.clear();
+    private void showPopular(List<Movie> movieList){
+        //layout management
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        binding.popularList.setLayoutManager(linearLayoutManager);
 
-        for (Movie movie : allMovies) {
-            if (movie.getTitle().toLowerCase().contains(query.toLowerCase())
-                    || movie.getDescription().toLowerCase().contains(query.toLowerCase())) {
-                filteredMovies.add(movie);
-            }
-        }
+        //adapter
+        MovieAdapter adapter = new MovieAdapter();
+        adapter.setOnItemClickListener(this);
+        adapter.submitList(movieList);
 
-        adapter.notifyDataSetChanged();
+        binding.popularList.setAdapter(adapter);
+
     }
+
+//    private void setupSearch() {
+//        binding.search.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+//                // Not used in this example
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+//                filterMovies(charSequence.toString());
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                // Not used in this example
+//            }
+//        });
+//    }
+//
+//    private void filterMovies(String query) {
+//        filteredMovies.clear();
+//
+//        for (Movie movie : allMovies) {
+//            if (movie.getTitle().toLowerCase().contains(query.toLowerCase())
+//                    || movie.getDescription().toLowerCase().contains(query.toLowerCase())) {
+//                filteredMovies.add(movie);
+//            }
+//        }
+//
+//        adapter.notifyDataSetChanged();
+//    }
 
     @Override
     public void onItemClick(Movie movie, int position) {
@@ -160,4 +171,5 @@ public class HomeFragment extends Fragment implements MovieAdapter.OnItemClickLi
         intent.putExtra("movie", array);
         startActivity(intent);
     }
+
 }
