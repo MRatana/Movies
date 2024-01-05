@@ -16,7 +16,7 @@ import retrofit2.Response;
 
 public class EditProfileActivity extends AppCompatActivity {
 
-    public ActivityProfileEditBinding binding;
+    private ActivityProfileEditBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

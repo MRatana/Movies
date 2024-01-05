@@ -1,27 +1,24 @@
 package kh.edu.rupp.ite.movies.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.media3.common.MediaItem;
-import androidx.media3.exoplayer.ExoPlayer;
-
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
+import android.media.MediaPlayer;
 import android.widget.MediaController;
-import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.squareup.picasso.Picasso;
 
-import kh.edu.rupp.ite.movies.R;
 import kh.edu.rupp.ite.movies.databinding.ActivityViewVideoBinding;
 
 public class ViewVideoActivity extends AppCompatActivity {
 
-    private String vdoUrl;
+    private String videoUrl;
     private ActivityViewVideoBinding binding;
+    private MediaPlayer player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,28 +27,32 @@ public class ViewVideoActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            vdoUrl = intent.getStringExtra("video");
+            this.videoUrl = intent.getStringExtra("video");
         }
+
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                releasePlayer();
                 finish();
             }
         });
-        playVideo(vdoUrl);
 
+        Uri videoUri = Uri.parse(videoUrl);
+        MediaController mediaController = new MediaController(this);
+        mediaController.setAnchorView(binding.videoView);
+        binding.videoView.setMediaController(mediaController);
+        binding.videoView.setVideoURI(videoUri);
+        binding.videoView.requestFocus();
+        binding.videoView.start();
     }
 
 
-    private void playVideo(String url){
-        Toast.makeText(this,url,Toast.LENGTH_SHORT).show();
-        ExoPlayer player = new ExoPlayer.Builder(this).build();
-        MediaItem mediaItem = MediaItem.fromUri(Uri.parse(url));
-        player.setMediaItem(mediaItem);
-        binding.videoView.setPlayer(player);
-        player.prepare();
-        player.play();
+
+    private void releasePlayer() {
+        if (player != null) {
+            player.release();
+            player = null;
+        }
     }
-
-
 }
