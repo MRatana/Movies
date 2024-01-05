@@ -1,6 +1,7 @@
 package kh.edu.rupp.ite.movies.adapters;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,11 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
 
     private List<Movie> searchResults;
+    public interface OnItemClickListener {
+        void onItemClick(Movie movie, int position,View view);
+    }
+
+    private OnItemClickListener listen;
 
     public SearchAdapter(List<Movie> searchResults) {
         this.searchResults = searchResults;
@@ -29,13 +35,33 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder holder, int position) {
-        Movie movie = searchResults.get(position);
-        holder.bind(movie);
+          Movie movieCard = searchResults.get(position);
+          holder.bind(movieCard);
+
+        // Set a click listener on the item view.
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Get the position of the clicked item.
+                int position = holder.getPosition();
+
+                // Perform the desired action.
+                if (listen != null) {
+                    listen.onItemClick(movieCard, position, view);
+                }
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return searchResults.size();
+    }
+
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listen = listener;
     }
 
     public static class SearchViewHolder extends RecyclerView.ViewHolder {
