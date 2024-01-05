@@ -1,8 +1,6 @@
 package kh.edu.rupp.ite.movies.Activities;
 
 import android.content.Intent;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
