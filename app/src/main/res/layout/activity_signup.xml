@@ -17,7 +17,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="30dp"
-                    android:text="Sign up"
+                    android:text="@string/signup"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Enter Username"
+                        android:text="@string/entername"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -49,14 +49,14 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_edit_text"
                         android:gravity="center_vertical"
-                        android:hint="Your Name"
+                        android:hint="@string/username"
                         android:paddingStart="15dp" />
 
                     <TextView
                         android:layout_marginTop="24dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Enter your E-mail"
+                        android:text="@string/enter_email"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -68,7 +68,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_edit_text"
                         android:gravity="center_vertical"
-                        android:hint="Your E-mail"
+                        android:hint="@string/email"
                         android:paddingStart="15dp" />
 
 
@@ -76,7 +76,7 @@
                         android:layout_marginTop="24dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Enter your Password"
+                        android:text="@string/enter_pass"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_edit_text"
                         android:gravity="center_vertical"
-                        android:hint="Your Password"
+                        android:hint="@string/pass"
                         android:paddingStart="15dp" />
 
                     <EditText
@@ -102,7 +102,7 @@
                         android:layout_marginTop="50dp"
                         android:background="@drawable/bg_edit_text"
                         android:gravity="center"
-                        android:hint="Sign up"
+                        android:hint="@string/signup"
                         android:paddingStart="15dp" />
 
                 </LinearLayout>
@@ -127,7 +127,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="Already have an account ?"
+                            android:hint="@string/haveAcc"
                             android:textStyle="bold" />
 
                         <TextView
@@ -137,7 +137,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="Log in"
+                            android:text="@string/login"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 

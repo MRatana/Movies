@@ -8,8 +8,36 @@
     <string name="account">Account</string>
     <string name="search">Search</string>
 
+    <string name="selectLanguage">Select Language</string>
+    <string name="khmer">Khmer</string>
+    <string name="english">English</string>
+    <string name="apply">Apply</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="notif">Notification</string>
+    <string name="setting">Setting</string>
+    <string name="help">Help</string>
+    <string name="language">Language</string>
+    <string name="logout">Log out</string>
+
+    <string name="login">Log in</string>
+    <string name="enter_email">Enter your E-mail</string>
+    <string name="email">E-mail</string>
+    <string name="enter_pass">Enter your Password</string>
+    <string name="pass">Password</string>
+    <string name="forget_pass">Forget your password ?</string>
+    <string name="donthaveAcc">Don\'t have an account ?</string>
+    <string name="registernow">Register now</string>
+
+    <string name="signup">Sign up</string>
+    <string name="entername">Enter Username</string>
+    <string name="username">Username</string>
+    <string name="haveAcc">Already have an account ?</string>
+
+
     <string name="hollywood">Hollywood</string>
     <string name="bollywood">Bollywood</string>
+    <string name="century">20th Century</string>
     <string name="text">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available</string>
 
 </resources>
