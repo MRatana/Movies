@@ -9,8 +9,35 @@
     <string name="account">គណនី</string>
     <string name="search">ស្វែងរក</string>
 
+    <string name="selectLanguage">ជ្រើសរើសភាសា</string>
+    <string name="khmer">ខ្មែរ</string>
+    <string name="english">English</string>
+    <string name="apply">រួចរាល់</string>
+
+    <string name="edit_profile">កែប្រវត្តិរូប</string>
+    <string name="notif">ការជូនដំណឹង</string>
+    <string name="setting">ការកំណត់</string>
+    <string name="help">ជំនួយ</string>
+    <string name="language">ភាសា</string>
+    <string name="logout">ចាកចេញ</string>
+
+    <string name="login">ចូលគណនី</string>
+    <string name="enter_email">បញ្ចូលអ៊ីមែលរបស់អ្នក</string>
+    <string name="email">អ៊ីមែល</string>
+    <string name="enter_pass">បញ្ចូលពាក្យសម្ងាត់របស់អ្នក</string>
+    <string name="pass">ពាក្យសម្ងាត់</string>
+    <string name="forget_pass">ភ្លេចពាក្យសម្ងាត់របស់អ្នក?</string>
+    <string name="donthaveAcc">មិនមានគណនីមែនទេ?</string>
+    <string name="registernow">ចុះឈ្មោះឥឡូវនេះ</string>
+
+    <string name="signup">ចុះឈ្មោះ</string>
+    <string name="entername">បញ្ចូលឈ្មោះអ្នកប្រើប្រាស់</string>
+    <string name="username">ឈ្មោះអ្នកប្រើប្រាស់</string>
+    <string name="haveAcc">មានគណនីរួចហើយ?</string>
+
     <string name="hollywood">Hollywood</string>
     <string name="bollywood">Bollywood</string>
+    <string name="century">20th Century</string>
     <string name="text">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available</string>
 
 </resources>

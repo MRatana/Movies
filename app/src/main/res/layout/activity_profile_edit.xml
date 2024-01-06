@@ -5,7 +5,7 @@
     <data>
         <variable
             name="loginView"
-            type="kh.edu.rupp.ite.movies.mvvm.viewmodel.LoginViewModel" />
+            type="kh.edu.rupp.ite.movies.viewmodel.LoginViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

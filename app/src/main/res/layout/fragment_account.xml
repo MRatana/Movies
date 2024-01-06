@@ -126,7 +126,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Edit Profile" />
+                            android:text="@string/edit_profile" />
 
                         <View
                             android:layout_width="wrap_content"
@@ -157,7 +157,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Notification" />
+                            android:text="@string/notif" />
 
                         <View
                             android:layout_width="wrap_content"
@@ -188,7 +188,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Setting" />
+                            android:text="@string/setting" />
 
                         <View
                             android:layout_width="wrap_content"
@@ -204,6 +204,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/change_language"
                         android:layout_marginBottom="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -219,7 +220,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Language" />
+                            android:text="@string/language" />
 
                         <View
                             android:layout_width="wrap_content"
@@ -250,7 +251,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Help" />
+                            android:text="@string/help" />
 
                         <View
                             android:layout_width="wrap_content"
@@ -278,7 +279,7 @@
                     android:layout_height="50dp"
                     android:background="@drawable/bg_edit_text"
                     android:gravity="center_vertical"
-                    android:text="Log out"
+                    android:text="@string/logout"
                     android:paddingStart="15dp"
                     android:drawableEnd="@drawable/ic_log_out"/>
 

@@ -3,7 +3,6 @@ package kh.edu.rupp.ite.movies.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -12,10 +11,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import kh.edu.rupp.ite.movies.api.model.Movie;
+import kh.edu.rupp.ite.movies.model.api.model.Movie;
 import kh.edu.rupp.ite.movies.databinding.MovieCardBinding;
 
 public class MovieAdapter extends ListAdapter<Movie , MovieAdapter.MovieViewHolder> {

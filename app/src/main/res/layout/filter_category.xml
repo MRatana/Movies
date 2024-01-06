@@ -73,7 +73,7 @@
             app:cardCornerRadius="20dp"
             app:cardBackgroundColor="@color/white">
             <TextView
-                android:text="@string/account"
+                android:text="@string/century"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
