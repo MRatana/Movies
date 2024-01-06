@@ -23,8 +23,11 @@
         <activity
             android:name=".view.Activities.MovieDetailActivity"
             android:exported="true" />
+        <activity android:name=".view.Activities.MainActivity" />
+        <activity android:name=".view.Activities.EditProfileActivity"/>
+        <activity android:name=".view.Activities.SignupActivity"/>
         <activity
-            android:name=".view.Activities.MainActivity"
+            android:name=".view.LoginActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,9 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.Activities.EditProfileActivity"/>
-        <activity android:name=".view.Activities.SignupActivity"/>
-        <activity android:name=".view.LoginActivity2"/>
         <activity android:name=".view.Activities.ChangeLanguageActivity"/>
 
     </application>
