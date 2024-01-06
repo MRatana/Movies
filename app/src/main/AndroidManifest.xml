@@ -18,13 +18,16 @@
         android:theme="@style/Theme.Movies"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.ViewVideoActivity"
+            android:name=".view.Activities.ViewVideoActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.MovieDetailActivity"
+            android:name=".view.Activities.MovieDetailActivity"
             android:exported="true" />
+        <activity android:name=".view.Activities.MainActivity" />
+        <activity android:name=".view.Activities.EditProfileActivity"/>
+        <activity android:name=".view.Activities.SignupActivity"/>
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".view.LoginActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,9 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.EditProfileActivity"/>
-        <activity android:name=".Activities.SignupActivity"/>
-        <activity android:name=".mvvm.view.LoginActivity2"/>
+        <activity android:name=".view.Activities.ChangeLanguageActivity"/>
 
     </application>
 

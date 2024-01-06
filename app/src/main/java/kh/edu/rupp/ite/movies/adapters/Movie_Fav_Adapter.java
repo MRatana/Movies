@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
-import kh.edu.rupp.ite.movies.api.model.Movie;
+import kh.edu.rupp.ite.movies.model.api.model.Movie;
 import kh.edu.rupp.ite.movies.databinding.ViewHolderDownloadMoviesBinding;
 import kh.edu.rupp.ite.movies.databinding.ViewHolderMoviesBinding;
 import kh.edu.rupp.ite.movies.databinding.ViewHolderFavoriteMoviesBinding;

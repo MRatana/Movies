@@ -5,7 +5,7 @@
     <data>
         <variable
             name="loginView"
-            type="kh.edu.rupp.ite.movies.mvvm.viewmodel.FavoriteViewModel" />
+            type="kh.edu.rupp.ite.movies.viewmodel.FavoriteViewModel" />
     </data>
     <FrameLayout android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -22,7 +22,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="30dp"
-                    android:text="Log in"
+                    android:text="@string/login"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Enter your E-mail"
+                        android:text="@string/enter_email"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -53,7 +53,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_edit_text"
                         android:gravity="center_vertical"
-                        android:hint="Your E-mail Or Username"
+                        android:hint="@string/email"
                         android:paddingStart="15dp"
                         android:textSize="16dp" />
 
@@ -61,7 +61,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:text="Enter your Password"
+                        android:text="@string/enter_pass"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_edit_text"
                         android:gravity="center_vertical"
-                        android:hint="Your Password"
+                        android:hint="@string/pass"
                         android:inputType="textPassword"
                         android:paddingStart="15dp"
                         android:textSize="16sp" />
@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:gravity="end"
-                        android:text="Forget your password ?"
+                        android:text="@string/forget_pass"
                         android:textColor="@color/bg_edit_text"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -97,7 +97,7 @@
                         android:backgroundTint="@color/red"
                         android:editable="false"
                         android:gravity="center"
-                        android:hint="Log in"
+                        android:hint="@string/login"
                         android:paddingStart="15dp"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -123,7 +123,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="Don't have an account ?"
+                            android:hint="@string/donthaveAcc"
                             android:textStyle="bold" />
 
                         <TextView
@@ -133,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginBottom="50dp"
-                            android:text="Register now"
+                            android:text="@string/registernow"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 

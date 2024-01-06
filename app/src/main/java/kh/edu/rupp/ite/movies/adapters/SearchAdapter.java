@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import kh.edu.rupp.ite.movies.api.model.Movie;
+import kh.edu.rupp.ite.movies.model.api.model.Movie;
 import kh.edu.rupp.ite.movies.databinding.ViewHolderSearchBinding;
 import java.util.List;
 
